@@ -4,16 +4,9 @@ import java.sql.*;
 
 public class App {
     public static void main(String[] args) {
-        // Create new Application
-        App a = new App();
 
-        // Connect to database
-        a.connect();
-        System.out.println("Getting Employee...");
+        System.out.println("Hello World");
 
-        System.out.println("Disconnecting...");
-        // Disconnect from database
-        a.disconnect();
     }
 
     /**
