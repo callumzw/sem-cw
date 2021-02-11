@@ -11,6 +11,11 @@ public class App {
         // Connect to database
         a.connect();
 
+        //Get opuntry
+        Country country = a.getCountry("AGO");
+        //Display country info
+        a.displayCountry(country);
+
         // Disconnect from database
         a.disconnect();
 
@@ -81,7 +86,7 @@ public class App {
             String countrySelect =
                     "SELECT Code, Name, Continent, Region, Population, Capital "
                             + "FROM country "
-                            + "WHERE Code = " + code;
+                            + "WHERE Code = '" + code + "'";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(countrySelect);
             // Return new employee if valid.
@@ -95,7 +100,7 @@ public class App {
                 country.region = rset.getString("Region");
                 country.population = rset.getInt("Population");
                 // Get Capital City Name
-                int cap = rset.getInt("Continent");
+                int cap = rset.getInt("Capital");
                 // Use Capital ID on city database
                 String capitalSelect =
                         "SELECT Name "
@@ -118,4 +123,18 @@ public class App {
             return null;
         }
     }
+    public void displayCountry(Country country)
+    {
+        if (country != null)
+        {
+            System.out.println(
+                    country.code + " "
+                            + country.name + " "
+                            + country.continent + "\n"
+                            + country.region + "\n"
+                            + country.population + "\n"
+                            + country.capital + "\n");
+        }
+    }
+
 }
