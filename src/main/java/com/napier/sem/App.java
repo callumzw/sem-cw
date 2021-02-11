@@ -9,132 +9,21 @@ public class App {
         App a = new App();
 
         // Connect to database
-        a.connect();
+        Database.connect();
 
-        //Get opuntry
-        Country country = a.getCountry("AGO");
+        //Get Angola
+        Country country = Country.getCountry("AGO");
         //Display country info
-        a.displayCountry(country);
+        Country.displayCountry(country);
+
+        //get Den Haag
+        City city = City.getCity(7);
+        City.displayCity(city);
 
         // Disconnect from database
-        a.disconnect();
+        Database.disconnect();
 
 
-
-    }
-
-    /**
-     * Connection to MySQL database.
-     */
-    private Connection con = null;
-
-    /**
-     * Connect to the MySQL database.
-     */
-    public void connect() {
-        try {
-            // Load Database driver
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 10;
-        for (int i = 0; i < retries; ++i) {
-            System.out.println("Connecting to database...");
-            try {
-                // Wait a bit for db to start
-
-                Thread.sleep(30000);
-                // Connect to test database, NEED: Update to world database+
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
-                System.out.println("Successfully connected");
-
-                break;
-            } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            } catch (InterruptedException ie) {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
-    }
-
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect() {
-        if (con != null) {
-            try {
-                // Close connection
-                con.close();
-                System.out.println("Disconnected");
-            } catch (Exception e) {
-                System.out.println("Error closing connection to database");
-            }
-        }
-    }
-
-    public Country getCountry(String code)
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String countrySelect =
-                    "SELECT Code, Name, Continent, Region, Population, Capital "
-                            + "FROM country "
-                            + "WHERE Code = '" + code + "'";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(countrySelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                Country country = new Country();
-                country.code = rset.getString("Code");
-                country.name = rset.getString("Name");
-                country.continent = rset.getString("Continent");
-                country.region = rset.getString("Region");
-                country.population = rset.getInt("Population");
-                // Get Capital City Name
-                int cap = rset.getInt("Capital");
-                // Use Capital ID on city database
-                String capitalSelect =
-                        "SELECT Name "
-                                + "FROM city "
-                                + "WHERE ID = " + cap;
-                ResultSet caprset = stmt.executeQuery(capitalSelect);
-                if (caprset.next())
-                {
-                    country.capital = caprset.getString("Name");
-                }
-                return country;
-            }
-            else
-                return null;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get country details");
-            return null;
-        }
-    }
-    public void displayCountry(Country country)
-    {
-        if (country != null)
-        {
-            System.out.println(
-                    country.code + " "
-                            + country.name + " "
-                            + country.continent + "\n"
-                            + country.region + "\n"
-                            + country.population + "\n"
-                            + country.capital + "\n");
-        }
     }
 
 }
