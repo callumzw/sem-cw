@@ -5,9 +5,10 @@ import java.sql.*;
 public class App {
     public static void main(String[] args) {
 
-        // Create new Application
-        App a = new App();
+        // Connecting to MySQL Database
+        Connection.connect();
 
-
+        // Disconnecting from MySQL Database
+        Connection.disconnect();
     }
 }
