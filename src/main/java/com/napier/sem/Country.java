@@ -79,4 +79,19 @@ public class Country
             return null;
         }
     }
+
+    // Display country to console
+    public static void displayCountry(ArrayList<Country> countries)
+    {
+        System.out.println(String.format("%-8s %-20s %-17s %-20s %-14s %-10s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        for (Country country : countries)
+        {
+            String country_str =
+                    String.format("%-8s %-20s %-17s %-20s %-14s %-10s",
+                            country.code, country.name, country.continent, country.region, country.population, country.capital);
+            System.out.println(country_str);
+
+        }
+        System.out.println("\n");
+    }
 }

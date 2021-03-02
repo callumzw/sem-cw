@@ -11,7 +11,7 @@ public class App {
 
         // Get all Countries
         ArrayList<Country> countries = Country.countriesWorld();
-        System.out.println(countries.size());
+        Country.displayCountry(countries);
 
         // Disconnecting from MySQL Database
         Connection.disconnect();
