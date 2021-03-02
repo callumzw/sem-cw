@@ -59,4 +59,18 @@ public class Capital {
             return null;
         }
     }
+
+    // Display Capitals
+    public static void displayCapital(ArrayList<Capital> capitals)
+    {
+        System.out.println(String.format("%-17s %-17s %-14s", "Name", "Country", "Population"));
+        for (Capital capital : capitals)
+        {
+            String capital_str =
+                    String.format("%-17s %-17s %-14s",
+                            capital.name, capital.country, capital.population);
+            System.out.println(capital_str);
+        }
+        System.out.println("\n");
+    }
 }

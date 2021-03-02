@@ -19,7 +19,7 @@ public class App {
 
         // Get all Capitals
         ArrayList<Capital> capitals = Capital.capitalsWorld();
-        System.out.println(capitals.size());
+        Capital.displayCapital(capitals);
 
 
         // Disconnecting from MySQL Database
