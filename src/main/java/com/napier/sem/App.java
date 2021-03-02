@@ -10,12 +10,13 @@ public class App {
         Connection.connect();
 
         // Get all Countries
-        ArrayList<Country> countries = Country.countriesWorld();
-        Country.displayCountry(countries);
+        //ArrayList<Country> countries = Country.countriesWorld();
+        // Country.displayCountry(countries);
 
         // Get all Cities
         ArrayList<City> cities = City.citiesWorld();
-        System.out.println(cities.size());
+        City.displayCity(cities);
+
 
         // Disconnecting from MySQL Database
         Connection.disconnect();

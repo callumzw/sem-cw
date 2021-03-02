@@ -66,4 +66,19 @@ public class City
             return null;
         }
     }
+
+    // Display cities
+    public static void displayCity(ArrayList<City> cities)
+    {
+        System.out.println(String.format("%-17s %-17s %-16s %-14s", "Name", "Country", "District", "Population"));
+        for (City city : cities)
+        {
+            String city_str =
+                    String.format("%-17s %-17s %-16s %-14s",
+                            city.name, city.country, city.district, city.population);
+            System.out.println(city_str);
+
+        }
+        System.out.println("\n");
+    }
 }
