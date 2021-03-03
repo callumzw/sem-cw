@@ -20,9 +20,13 @@ public class App {
         // Get all Cities in a District
         ArrayList<City> cities = City.citiesDistrict("Zuid-Holland");
         City.displayCity(cities);
-**/
+
         // Get all Cities in a Region
         ArrayList<City> cities = City.citiesRegion("Caribbean");
+        City.displayCity(cities);
+ **/
+
+        ArrayList<City> cities = City.citiesCont("Oceania");
         City.displayCity(cities);
 /**
         // Get all Capitals
