@@ -12,7 +12,12 @@ public class App {
         // Get all Countries
         ArrayList<Country> countries = Country.countriesWorld();
          Country.displayCountry(countries);
+         **/
 
+        ArrayList<Country> countries = Country.countriesCont("Europe");
+        Country.displayCountry(countries);
+
+         /**
         // Get all Cities
         ArrayList<City> cities = City.citiesWorld();
         City.displayCity(cities);
@@ -41,10 +46,11 @@ public class App {
         // Get all Capitals in a Continent
         ArrayList<Capital> capitals = Capital.capitalsCont("Europe");
         Capital.displayCapital(capitals);
-         **/
+
         // Get all Capitals in a Region
         ArrayList<Capital> capitals = Capital.capitalsRegion("Southern Africa");
         Capital.displayCapital(capitals);
+         **/
 
 
         // Disconnecting from MySQL Database
