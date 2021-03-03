@@ -119,6 +119,46 @@ public class Country
         }
     }
 
+    //  All Countries by Population in x Region
+    public static ArrayList<Country> countriesRegion(String region)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = Connection.getCon().createStatement();
+            // Create string for SQL statement
+            String countrySelect =
+                    "SELECT Code, country.Name, Continent, Region, country.Population, city.Name "
+                            + "FROM country JOIN city ON city.CountryCode=country.Code "
+                            + "WHERE country.Capital=city.ID AND Region = '" +region+ "' "
+                            + "ORDER BY country.Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(countrySelect);
+            // Return new employee if valid.
+            ArrayList<Country> countries = new ArrayList<Country>();
+            // Check one is returned
+            while (rset.next())
+            {
+                Country country = new Country();
+                country.code = rset.getString("Code");
+                country.name = rset.getString("country.Name");
+                country.continent = rset.getString("Continent");
+                country.region = rset.getString("Region");
+                country.population = rset.getLong("country.Population");
+                country.capital = rset.getString("city.Name");
+                countries.add(country);
+            }
+            return countries;
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+
     // Display country to console
     public static void displayCountry(ArrayList<Country> countries)
     {

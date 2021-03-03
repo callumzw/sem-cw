@@ -10,11 +10,15 @@ public class App {
         Connection.connect();
         /**
         // Get all Countries
-        ArrayList<Country> countries = Country.countriesWorld();
-         Country.displayCountry(countries);
+        ArrayList<Country> countries = Country.countriesWorld();Country.displayCountry(countries);
+
+        // Get al countries in a continent
+        ArrayList<Country> countries = Country.countriesCont("Europe");
+        Country.displayCountry(countries);
          **/
 
-        ArrayList<Country> countries = Country.countriesCont("Europe");
+        // Get all countries in a region
+        ArrayList<Country> countries = Country.countriesRegion("Central America");
         Country.displayCountry(countries);
 
          /**
