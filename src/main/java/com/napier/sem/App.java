@@ -37,11 +37,15 @@ public class App {
         // Get all Capitals in the world
          ArrayList<Capital> capitals = Capital.capitalsWorld();
          Capital.displayCapital(capitals);
-        **/
 
         // Get all Capitals in a Continent
         ArrayList<Capital> capitals = Capital.capitalsCont("Europe");
         Capital.displayCapital(capitals);
+         **/
+        // Get all Capitals in a Region
+        ArrayList<Capital> capitals = Capital.capitalsRegion("Southern Africa");
+        Capital.displayCapital(capitals);
+
 
         // Disconnecting from MySQL Database
         Connection.disconnect();
