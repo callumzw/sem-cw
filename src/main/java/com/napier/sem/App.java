@@ -24,10 +24,14 @@ public class App {
         // Get all Cities in a Region
         ArrayList<City> cities = City.citiesRegion("Caribbean");
         City.displayCity(cities);
- **/
 
         ArrayList<City> cities = City.citiesCont("Oceania");
         City.displayCity(cities);
+ **/
+
+        ArrayList<City> cities = City.citiesCountry("Japan");
+        City.displayCity(cities);
+
 /**
         // Get all Capitals
          ArrayList<Capital> capitals = Capital.capitalsWorld();
