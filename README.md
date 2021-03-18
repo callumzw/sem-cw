@@ -1,5 +1,6 @@
 - Master Build Status [![Build Status](https://travis-ci.com/callumzw/sem-cw.svg?branch=master)](https://travis-ci.com/callumzw/sem-cw)
+    - Codecov [![codecov](https://codecov.io/gh/callumzw/sem-cw/branch/master/graph/badge.svg?token=9WBX5SY5PN)](https://codecov.io/gh/callumzw/sem-cw)
 - Develop Build Status [![Build Status](https://travis-ci.org/callumzw/sem-cw.svg?branch=develop)](https://travis-ci.org/callumzw/sem-cw)
+    - Codecov [![codecov](https://codecov.io/gh/callumzw/sem-cw/branch/develop/graph/badge.svg?token=9WBX5SY5PN)](https://codecov.io/gh/callumzw/sem-cw)
 - License [![LICENSE](https://img.shields.io/github/license/callumzw/sem-cw.svg?style=flat-square)](https://github.com/callumzw/sem-cw/blob/master/LICENSE)
 - Release [![Releases](https://img.shields.io/github/release/callumzw/sem-cw/all.svg?style=flat-square)](https://github.com/callumzw/sem-cw/releases)
-- Codecov [![codecov](https://codecov.io/gh/callumzw/sem-cw/branch/master/graph/badge.svg?token=9WBX5SY5PN)](https://codecov.io/gh/callumzw/sem-cw)
