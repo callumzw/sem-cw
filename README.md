@@ -2,3 +2,4 @@
 - Develop Build Status [![Build Status](https://travis-ci.org/callumzw/sem-cw.svg?branch=develop)](https://travis-ci.org/callumzw/sem-cw)
 - License [![LICENSE](https://img.shields.io/github/license/callumzw/sem-cw.svg?style=flat-square)](https://github.com/callumzw/sem-cw/blob/master/LICENSE)
 - Release [![Releases](https://img.shields.io/github/release/callumzw/sem-cw/all.svg?style=flat-square)](https://github.com/callumzw/sem-cw/releases)
+- Codecov [![codecov](https://codecov.io/gh/callumzw/sem-cw/branch/master/graph/badge.svg?token=ISVHH52ZO5)](https://codecov.io/gh/callumzw/sem-cw)

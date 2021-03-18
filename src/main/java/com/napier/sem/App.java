@@ -3,11 +3,22 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ *
+  */
 public class App {
     public static void main(String[] args) {
 
         // Connecting to MySQL Database
-        Connection.connect();
+        if (args.length < 1)
+        {
+            // Connect to database...
+            Connection.connect("localhost:33060");
+        }
+        else
+        {
+            Connection.connect(args[0]);
+        }
 
         // Get all Countries
         ArrayList<Country> countries = Country.countriesWorld();Country.displayCountry(countries);
