@@ -80,4 +80,14 @@ public class AppIntegrationTest
         assertEquals(cities.get(0).district, "Tokyo-to");
 
     }
+
+    @Test
+    void testCitiesDistric()
+    {
+        ArrayList<City> cities = City.citiesDistrict("Zuid-Holland");
+        assertEquals(cities.get(0).name, "Rotterdam");
+        assertEquals(cities.get(0).country, "Netherlands");
+        assertEquals(cities.get(0).district, "Zuid-Holland");
+
+    }
 }
