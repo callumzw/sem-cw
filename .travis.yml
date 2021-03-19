@@ -23,9 +23,11 @@ jobs:
       install: skip
       jdk: oraclejdk11
       script: mvn test -Dtest=com.napier.sem.AppTest
+      CODECOV_TOKEN: '1e40c8f7-2e02-4517-83e8-57dc6d7db7bd'
     - stage: integration tests
       jdk: oraclejdk11
       script: mvn test -Dtest=com.napier.sem.AppIntegrationTest
+      CODECOV_TOKEN: '1e40c8f7-2e02-4517-83e8-57dc6d7db7bd'
     - stage: deploy
       install: skip
       jdk: oraclejdk11
@@ -37,6 +39,7 @@ stages:
   - unit tests
   - integration tests
   - name: deploy
+    if: branch = master
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -t uuid-repo-token
