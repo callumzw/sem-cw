@@ -3,10 +3,15 @@ package com.napier.sem;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * The Connection class controls the connection to the MySQL server which hosts the world database.
+ *
+ * @author  Callum Grant
+ * @version 1.0
+ * @since   2021-03-19
+ */
+
 public class Connection {
-    /**
-     * Connection to MySQL database.
-     */
     private static java.sql.Connection con = null;
     public static java.sql.Connection getCon()
     {
