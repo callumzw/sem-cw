@@ -61,4 +61,23 @@ public class AppIntegrationTest
         assertEquals(cities.get(0).district, "New South Wales");
 
     }
+    @Test
+    void testCitiesRegion()
+    {
+        ArrayList<City> cities = City.citiesRegion("Caribbean");
+        assertEquals(cities.get(0).name, "La Habana");
+        assertEquals(cities.get(0).country, "Cuba");
+        assertEquals(cities.get(0).district, "La Habana");
+
+    }
+
+    @Test
+    void testCitiesCountry()
+    {
+        ArrayList<City> cities = City.citiesCountry("Japan");
+        assertEquals(cities.get(0).name, "Tokyo");
+        assertEquals(cities.get(0).country, "Japan");
+        assertEquals(cities.get(0).district, "Tokyo-to");
+
+    }
 }
