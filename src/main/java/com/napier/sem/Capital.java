@@ -5,13 +5,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * The Country class creates objects containing information for a Country Report.
+ * The Capital class creates objects containing information for a Capital Report.
  * This is done through a SQL query in the world database, using the Connection Class
  *
  * @author  Callum Grant
  * @version 1.0
  * @since   2021-03-19
  */
+
 public class Capital {
     /**
      * City name

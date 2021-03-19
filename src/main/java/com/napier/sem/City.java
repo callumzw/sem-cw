@@ -3,6 +3,14 @@ package com.napier.sem;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+/**
+ * The City class creates objects containing information for a City Report.
+ * This is done through a SQL query in the world database, using the Connection Class
+ *
+ * @author  Callum Grant
+ * @version 1.0
+ * @since   2021-03-19
+ */
 
 public class City
 {
