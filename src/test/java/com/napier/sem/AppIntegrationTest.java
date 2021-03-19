@@ -82,7 +82,7 @@ public class AppIntegrationTest
     }
 
     @Test
-    void testCitiesDistric()
+    void testCitiesDistrict()
     {
         ArrayList<City> cities = City.citiesDistrict("Zuid-Holland");
         assertEquals(cities.get(0).name, "Rotterdam");
