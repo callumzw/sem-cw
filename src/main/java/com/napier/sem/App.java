@@ -18,7 +18,7 @@ public class App {
         }
 
         // Get all Countries
-        ArrayList<Country> countries = Country.countriesWorld();Country.displayCountry(countries);
+        ArrayList<Country> countries = Country.countriesWorld();
         Country.displayCountry((countries));
 
         // Get al countries in a continent
