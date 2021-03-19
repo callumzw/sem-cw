@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AppIntegrationTest
 {
-
+// Country Class Tests
     @BeforeAll
     static void init()
     {
@@ -17,7 +17,7 @@ public class AppIntegrationTest
     }
 
     @Test
-    void countriesWorld()
+    void testCountriesWorld()
     {
         ArrayList<Country> countries = Country.countriesWorld();
         assertEquals(countries.get(0).code, "CHN");
@@ -39,5 +39,55 @@ public class AppIntegrationTest
         assertEquals(countries.get(0).code, "MEX");
         assertEquals(countries.get(0).name, "Mexico");
         assertEquals(countries.get(0).continent, "North America");
+    }
+
+    //City Class Tests
+    @Test
+    void testCitiesWorld()
+    {
+        ArrayList<City> cities = City.citiesWorld();
+        assertEquals(cities.get(0).name, "Mumbai (Bombay)");
+        assertEquals(cities.get(0).country, "India");
+        assertEquals(cities.get(0).district, "Maharashtra");
+
+    }
+
+    @Test
+    void testCitiesCont()
+    {
+        ArrayList<City> cities = City.citiesCont("Oceania");
+        assertEquals(cities.get(0).name, "Sydney");
+        assertEquals(cities.get(0).country, "Australia");
+        assertEquals(cities.get(0).district, "New South Wales");
+
+    }
+    @Test
+    void testCitiesRegion()
+    {
+        ArrayList<City> cities = City.citiesRegion("Caribbean");
+        assertEquals(cities.get(0).name, "La Habana");
+        assertEquals(cities.get(0).country, "Cuba");
+        assertEquals(cities.get(0).district, "La Habana");
+
+    }
+
+    @Test
+    void testCitiesCountry()
+    {
+        ArrayList<City> cities = City.citiesCountry("Japan");
+        assertEquals(cities.get(0).name, "Tokyo");
+        assertEquals(cities.get(0).country, "Japan");
+        assertEquals(cities.get(0).district, "Tokyo-to");
+
+    }
+
+    @Test
+    void testCitiesDistrict()
+    {
+        ArrayList<City> cities = City.citiesDistrict("Zuid-Holland");
+        assertEquals(cities.get(0).name, "Rotterdam");
+        assertEquals(cities.get(0).country, "Netherlands");
+        assertEquals(cities.get(0).district, "Zuid-Holland");
+
     }
 }
