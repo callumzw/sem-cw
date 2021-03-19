@@ -43,20 +43,22 @@ public class App {
         ArrayList<City> cities = City.citiesWorld();
         City.displayCity(cities);
 
-        // Get all Cities in a District
-        cities = City.citiesDistrict("Zuid-Holland");
+        // Get all Cities in a Continent
+        cities = City.citiesCont("Oceania");
         City.displayCity(cities);
+
 
         // Get all Cities in a Region
         cities = City.citiesRegion("Caribbean");
         City.displayCity(cities);
 
-        // Get all Cities in a Continent
-        cities = City.citiesCont("Oceania");
-        City.displayCity(cities);
 
         // Get all Cities in a Country
         cities = City.citiesCountry("Japan");
+        City.displayCity(cities);
+
+        // Get all Cities in a District
+        cities = City.citiesDistrict("Zuid-Holland");
         City.displayCity(cities);
 
 
