@@ -40,5 +40,5 @@ stages:
     if: branch = master
 
 after_success:
-  - export CODECOV_TOKEN=169f09e7-e8d1-4909-94a4-2399945d4454
+  - export CODECOV_TOKEN="169f09e7-e8d1-4909-94a4-2399945d4454"
   - bash <(curl -s https://codecov.io/bash)
