@@ -6,7 +6,14 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+/**
+ * This class creates integration tests for the Country, City and Capital classes
+ * Testing their methods interacting with the world SQL database.
+ *
+ * @author  Callum Grant
+ * @version 1.0
+ * @since   2021-03-19
+ */
 public class AppIntegrationTest
 {
 // Country Class Tests

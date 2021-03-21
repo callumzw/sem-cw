@@ -2,7 +2,15 @@ package com.napier.sem;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+/**
+ * The App program implements an application that
+ * displays reports of Countries, Cities and Capitals.
+ * These reports include population,name,continent,region etc.
+ *
+ * @author  Callum Grant
+ * @version 1.0
+ * @since   2021-03-19
+ */
 public class App {
     public static void main(String[] args) {
 
