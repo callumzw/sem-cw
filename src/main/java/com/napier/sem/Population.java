@@ -64,5 +64,24 @@ public class Population {
         return ruralPop;
     }
 
-
+    public static void displayPopulation(ArrayList<Population> populations)
+    {
+        // Check populations is not null
+        if (populations == null)
+        {
+            System.out.println("No population information");
+            return;
+        }
+        System.out.println(String.format("%-18s %-14s %-14s %-14s", "Name", "Total", "City", "Rural"));
+        for (Population pop : populations)
+        {
+            if (pop == null)
+                continue;
+            String pop_str =
+                    String.format("%-18s %-14s %-14s %-14s",
+                            pop.name, pop.totalPop, pop.cityPop, pop.ruralPop);
+            System.out.println(pop_str);
+        }
+        System.out.println("\n");
+    }
 }

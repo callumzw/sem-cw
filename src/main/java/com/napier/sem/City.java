@@ -221,9 +221,17 @@ public class City
     // Display cities
     public static void displayCity(ArrayList<City> cities)
     {
+        // Check cities is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         System.out.println(String.format("%-17s %-17s %-16s %-14s", "Name", "Country", "District", "Population"));
         for (City city : cities)
         {
+            if (city == null)
+                continue;
             String city_str =
                     String.format("%-17s %-17s %-16s %-14s",
                             city.name, city.country, city.district, city.population);
