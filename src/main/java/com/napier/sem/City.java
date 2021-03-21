@@ -14,31 +14,30 @@ import java.util.ArrayList;
 
 public class City
 {
+    // City Name
+    private String name;
+    // City Region
+    private String country;
+    // City District
+    private String district;
+    // City Population
+    private long population;
 
     /**
-     * City name
+     *  Getters and Setters
      */
-    public String name;
-
-    /**
-     * City Country
-     */
-    public String country;
-
-    /**
-     * City District
-     */
-    public String district;
-
-    /**
-     * City population
-     */
-    public long population;
+    public String getName() {return name;}
+    public String setName(String name){ this.name = name; return name;}
+    public String getCountry() {return country;}
+    public String setCountry(String country){ this.country = country; return country;}
+    public String getDistrict() {return district;}
+    public String setDistrict(String district){ this.district = district; return district;}
+    public long getPopulation() {return population;}
+    public long setPopulation(long population){ this.population = population; return population;}
 
     /**
      *  Methods
      */
-
     // All Cities by Population in the World
     public static ArrayList<City> citiesWorld()
     {
