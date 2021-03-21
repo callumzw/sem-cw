@@ -144,9 +144,17 @@ public class Capital {
     // Display Capitals
     public static void displayCapital(ArrayList<Capital> capitals)
     {
+        // Check Capitals is not null
+        if (capitals == null)
+        {
+            System.out.println("No capitals");
+            return;
+        }
         System.out.println(String.format("%-17s %-17s %-14s", "Name", "Country", "Population"));
         for (Capital capital : capitals)
         {
+            if (capital == null)
+                continue;
             String capital_str =
                     String.format("%-17s %-17s %-14s",
                             capital.name, capital.country, capital.population);

@@ -13,36 +13,35 @@ import java.util.ArrayList;
 
 public class Country
 {
-    /**
-     * Country Code
-     */
-    public String code;
+   // Country Code
+    private String code;
+   // Country Name
+    private String name;
+    // Country Continent
+    private String continent;
+    // Country Region
+    private String region;
+    // Country Population
+    private long population;
+    // Country Capital
+    private String capital;
 
     /**
-     * Country name
+     *  Getters and Setters
      */
-    public String name;
+    public String getCode() {return code;}
+    public String setCode(String code){ this.code = code; return code;}
+    public String getName() {return name;}
+    public String setName(String name){ this.name = name; return name;}
+    public String getContinent() {return continent;}
+    public String setContinent(String continent){ this.continent = continent; return continent;}
+    public String getRegion() {return region;}
+    public String setRegion(String region){ this.region = region; return region;}
+    public long getPopulation() {return population;}
+    public long setPopulation(long population){ this.population = population; return population;}
+    public String getCapital() {return capital;}
+    public String setCapital(String capital){ this.capital = capital; return capital;}
 
-    /**
-     * Country Continent
-     */
-    public String continent;
-
-    /**
-     * Country Region
-     */
-    public String region;
-
-
-    /**
-     * Country Population
-     */
-    public long population;
-
-    /**
-     * Country Capital
-     */
-    public String capital;
 
 
     /**

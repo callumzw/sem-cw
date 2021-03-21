@@ -27,25 +27,25 @@ public class AppIntegrationTest
     void testCountriesWorld()
     {
         ArrayList<Country> countries = Country.countriesWorld();
-        assertEquals(countries.get(0).code, "CHN");
-        assertEquals(countries.get(0).name, "China");
-        assertEquals(countries.get(0).continent, "Asia");
+        assertEquals(countries.get(0).getCode(), "CHN");
+        assertEquals(countries.get(0).getName(), "China");
+        assertEquals(countries.get(0).getContinent(), "Asia");
     }
     @Test
     void testCountriesCont()
     {
         ArrayList<Country> countries = Country.countriesCont("Europe");
-        assertEquals(countries.get(0).code, "RUS");
-        assertEquals(countries.get(0).name, "Russian Federation");
-        assertEquals(countries.get(0).region, "Eastern Europe");
+        assertEquals(countries.get(0).getCode(), "RUS");
+        assertEquals(countries.get(0).getName(), "Russian Federation");
+        assertEquals(countries.get(0).getRegion(), "Eastern Europe");
     }
     @Test
     void testCountriesRegion()
     {
         ArrayList<Country> countries = Country.countriesRegion("Central America");
-        assertEquals(countries.get(0).code, "MEX");
-        assertEquals(countries.get(0).name, "Mexico");
-        assertEquals(countries.get(0).continent, "North America");
+        assertEquals(countries.get(0).getCode(), "MEX");
+        assertEquals(countries.get(0).getName(), "Mexico");
+        assertEquals(countries.get(0).getContinent(), "North America");
     }
 
     //City Class Tests

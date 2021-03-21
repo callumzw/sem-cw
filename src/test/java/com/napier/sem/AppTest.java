@@ -48,12 +48,12 @@ public class AppTest
     {
         ArrayList<Country> countries = new ArrayList<Country>();
         Country country = new Country();
-        country.code = "JPN";
-        country.name = "Japan";
-        country.continent = "Asia";
-        country.region = "East Asia";
-        country.population = 100000;
-        country.capital = "Tokyo";
+        country.setCode("JPN");
+        country.setName("Japan");
+        country.setContinent("Asia");
+        country.setRegion("East Asia");
+        country.setPopulation(100000);
+        country.setCapital("Tokyo");
         countries.add(country);
         Country.displayCountry(countries);
     }
