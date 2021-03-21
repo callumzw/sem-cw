@@ -79,7 +79,7 @@ public class Population {
                 continue;
             String pop_str =
                     String.format("%-18s %-14s %-14s %-14s",
-                            pop.name, pop.totalPop, pop.cityPop, pop.ruralPop);
+                            pop.getName(), pop.getTotalPop(), pop.getCityPop(), pop.getRuralPop());
             System.out.println(pop_str);
         }
         System.out.println("\n");
