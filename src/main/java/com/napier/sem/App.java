@@ -83,6 +83,10 @@ public class App {
         populations = Population.popRegion();
         Population.displayPopulation(populations);
 
+        // Get population of all countries
+        populations = Population.popCountry();
+        Population.displayPopulation(populations);
+
 
         // Disconnecting from MySQL Database
         Connection.disconnect();
