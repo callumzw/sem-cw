@@ -14,20 +14,23 @@ import java.util.ArrayList;
  */
 
 public class Capital {
-    /**
-     * City name
-     */
-    public String name;
+    // Capital Name
+    private String name;
 
-    /**
-     * City Country
-     */
-    public String country;
+    // Capital Country
+    private String country;
 
-    /**
-     * City population
-     */
-    public long population;
+    // Capital Population
+    private long population;
+
+    // Getters and  Setters
+
+    public String getName(){return name;}
+    public String setName(String name){ this.name = name; return name;}
+    public String getCountry() {return country;}
+    public String setCountry(String country){ this.country = country; return country;}
+    public long getPopulation() {return population;}
+    public long setPopulation(long population){ this.population = population; return population;}
 
 
     /**
