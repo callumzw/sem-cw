@@ -63,7 +63,7 @@ public class AppIntegrationTest
     void testCitiesCont()
     {
         ArrayList<City> cities = City.citiesCont("Oceania");
-        assertEquals(cities.get(0).getCountry(), "Sydney");
+        assertEquals(cities.get(0).getName(), "Sydney");
         assertEquals(cities.get(0).getCountry(), "Australia");
         assertEquals(cities.get(0).getDistrict(), "New South Wales");
 
