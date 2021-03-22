@@ -27,25 +27,25 @@ public class AppIntegrationTest
     void testCountriesWorld()
     {
         ArrayList<Country> countries = Country.countriesWorld();
-        assertEquals(countries.get(0).code, "CHN");
-        assertEquals(countries.get(0).name, "China");
-        assertEquals(countries.get(0).continent, "Asia");
+        assertEquals(countries.get(0).getCode(), "CHN");
+        assertEquals(countries.get(0).getName(), "China");
+        assertEquals(countries.get(0).getContinent(), "Asia");
     }
     @Test
     void testCountriesCont()
     {
         ArrayList<Country> countries = Country.countriesCont("Europe");
-        assertEquals(countries.get(0).code, "RUS");
-        assertEquals(countries.get(0).name, "Russian Federation");
-        assertEquals(countries.get(0).region, "Eastern Europe");
+        assertEquals(countries.get(0).getCode(), "RUS");
+        assertEquals(countries.get(0).getName(), "Russian Federation");
+        assertEquals(countries.get(0).getRegion(), "Eastern Europe");
     }
     @Test
     void testCountriesRegion()
     {
         ArrayList<Country> countries = Country.countriesRegion("Central America");
-        assertEquals(countries.get(0).code, "MEX");
-        assertEquals(countries.get(0).name, "Mexico");
-        assertEquals(countries.get(0).continent, "North America");
+        assertEquals(countries.get(0).getCode(), "MEX");
+        assertEquals(countries.get(0).getName(), "Mexico");
+        assertEquals(countries.get(0).getContinent(), "North America");
     }
 
     //City Class Tests
@@ -53,9 +53,9 @@ public class AppIntegrationTest
     void testCitiesWorld()
     {
         ArrayList<City> cities = City.citiesWorld();
-        assertEquals(cities.get(0).name, "Mumbai (Bombay)");
-        assertEquals(cities.get(0).country, "India");
-        assertEquals(cities.get(0).district, "Maharashtra");
+        assertEquals(cities.get(0).getName(), "Mumbai (Bombay)");
+        assertEquals(cities.get(0).getCountry(), "India");
+        assertEquals(cities.get(0).getDistrict(), "Maharashtra");
 
     }
 
@@ -63,18 +63,18 @@ public class AppIntegrationTest
     void testCitiesCont()
     {
         ArrayList<City> cities = City.citiesCont("Oceania");
-        assertEquals(cities.get(0).name, "Sydney");
-        assertEquals(cities.get(0).country, "Australia");
-        assertEquals(cities.get(0).district, "New South Wales");
+        assertEquals(cities.get(0).getName(), "Sydney");
+        assertEquals(cities.get(0).getCountry(), "Australia");
+        assertEquals(cities.get(0).getDistrict(), "New South Wales");
 
     }
     @Test
     void testCitiesRegion()
     {
         ArrayList<City> cities = City.citiesRegion("Caribbean");
-        assertEquals(cities.get(0).name, "La Habana");
-        assertEquals(cities.get(0).country, "Cuba");
-        assertEquals(cities.get(0).district, "La Habana");
+        assertEquals(cities.get(0).getName(), "La Habana");
+        assertEquals(cities.get(0).getCountry(), "Cuba");
+        assertEquals(cities.get(0).getDistrict(), "La Habana");
 
     }
 
@@ -82,9 +82,9 @@ public class AppIntegrationTest
     void testCitiesCountry()
     {
         ArrayList<City> cities = City.citiesCountry("Japan");
-        assertEquals(cities.get(0).name, "Tokyo");
-        assertEquals(cities.get(0).country, "Japan");
-        assertEquals(cities.get(0).district, "Tokyo-to");
+        assertEquals(cities.get(0).getName(), "Tokyo");
+        assertEquals(cities.get(0).getCountry(), "Japan");
+        assertEquals(cities.get(0).getDistrict(), "Tokyo-to");
 
     }
 
@@ -92,9 +92,9 @@ public class AppIntegrationTest
     void testCitiesDistrict()
     {
         ArrayList<City> cities = City.citiesDistrict("Zuid-Holland");
-        assertEquals(cities.get(0).name, "Rotterdam");
-        assertEquals(cities.get(0).country, "Netherlands");
-        assertEquals(cities.get(0).district, "Zuid-Holland");
+        assertEquals(cities.get(0).getName(), "Rotterdam");
+        assertEquals(cities.get(0).getCountry(), "Netherlands");
+        assertEquals(cities.get(0).getDistrict(), "Zuid-Holland");
 
     }
 }
