@@ -64,6 +64,44 @@ public class Population {
         return ruralPop;
     }
 
+    /**
+     *  Methods
+     */
+    public static ArrayList<Population> popContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = Connection.getCon().createStatement();
+            // Create string for SQL statement
+            String countrySelect =
+                    "SELECT Continent, SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                            + "FROM country JOIN city ON city.CountryCode=country.Code "
+                            + "GROUP BY Continent ORDER BY SUM(country.Population) DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(countrySelect);
+            // Return new employee if valid.
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Check one is returned
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.name = rset.getString("Continent");
+                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
+                population.cityPop = rset.getLong ("SUM(city.Population)");
+                population.ruralPop = rset.getLong ("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                populations.add(population);
+            }
+            return populations;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
     public static void displayPopulation(ArrayList<Population> populations)
     {
         // Check populations is not null

@@ -25,6 +25,7 @@ public class App {
             Connection.connect(args[0]);
         }
 
+        /*
         // Get all Countries
         ArrayList<Country> countries = Country.countriesWorld();
         Country.displayCountry((countries));
@@ -73,6 +74,9 @@ public class App {
         // Get all Capitals in a Region
         capitals = Capital.capitalsRegion("Southern Africa");
         Capital.displayCapital(capitals);
+        */
+        ArrayList<Population> populations = Population.popContinent();
+        Population.displayPopulation(populations);
 
 
         // Disconnecting from MySQL Database
