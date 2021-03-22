@@ -75,7 +75,12 @@ public class App {
         capitals = Capital.capitalsRegion("Southern Africa");
         Capital.displayCapital(capitals);
         */
+        // Get population of all continents
         ArrayList<Population> populations = Population.popContinent();
+        Population.displayPopulation(populations);
+
+        // Get population of all regions
+        populations = Population.popRegion();
         Population.displayPopulation(populations);
 
 
