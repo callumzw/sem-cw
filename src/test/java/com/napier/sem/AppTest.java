@@ -18,12 +18,17 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AppTest
 {
     static Country country;
+    static Capital capital;
+    static Population population;
 
     @BeforeAll
     static void init()
     {
         country = new Country();
+        capital = new Capital();
+        population = new Population();
     }
+
 
     @Test
     void printCountriesTestNull()
@@ -56,5 +61,71 @@ public class AppTest
         country.setCapital("Tokyo");
         countries.add(country);
         Country.displayCountry(countries);
+    }
+
+
+    /**
+     * unit tests for the Capital and Population classes
+     * testing that their methods work as intended
+     *
+     * Written by: Mikolaj Figiel on 22/03/2021
+     */
+    @Test
+    void printCapitalTestNull() { capital.displayCapital(null); }
+    @Test
+    void printCapitalTestEmpty()
+    {
+        ArrayList<Capital> capitals = new ArrayList<Capital>();
+        Capital.displayCapital(capitals);
+    }
+
+    @Test
+    void printCapitalTestContainsNull()
+    {
+        ArrayList<Capital> capitals = new ArrayList<Capital>();
+        capitals.add(null);
+        Capital.displayCapital(capitals);
+    }
+
+    @Test
+    void printCapitals()
+    {
+        ArrayList<Capital> capitals = new ArrayList<Capital>();
+        Capital capital = new Capital();
+        capital.setName("Oslo");
+        capital.setCountry("Norway");
+        capital.setPopulation(9001);
+        capitals.add(capital);
+        Capital.displayCapital(capitals);
+    }
+
+
+    @Test
+    void printPopulationTestNull(){ population.displayPopulation(null);}
+    @Test
+    void printPopulationTestEmpty()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        Population.displayPopulation(populations);
+    }
+
+    @Test
+    void printPopulationTestContainsNull()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        populations.add(null);
+        Population.displayPopulation(populations);
+    }
+
+    @Test
+    void printPopulations()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        Population population = new Population();
+        population.setName("Greenland");
+        population.setTotalPop(69420);
+        population.setCityPop(69000);
+        population.setRuralPop(420);
+        Population.displayPopulation(populations);
     }
 }
