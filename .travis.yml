@@ -36,7 +36,8 @@ jobs:
 stages:
   - unit tests
   - integration tests
-  - deploy
+  - name: deploy
+      if: branch = master
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -v
