@@ -144,7 +144,7 @@ public class Capital {
     // Display Capitals
     public static void displayCapital(ArrayList<Capital> capitals)
     {
-        // Check capitals is not null
+        // Check Capitals is not null
         if (capitals == null)
         {
             System.out.println("No capitals");
