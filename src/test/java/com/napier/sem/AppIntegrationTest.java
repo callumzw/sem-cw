@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class AppIntegrationTest
 {
-// Country Class Tests
+    // Country Class Tests
     @BeforeAll
     static void init()
     {
@@ -56,7 +56,6 @@ public class AppIntegrationTest
         assertEquals(cities.get(0).getName(), "Mumbai (Bombay)");
         assertEquals(cities.get(0).getCountry(), "India");
         assertEquals(cities.get(0).getDistrict(), "Maharashtra");
-
     }
 
     @Test
@@ -96,5 +95,64 @@ public class AppIntegrationTest
         assertEquals(cities.get(0).getCountry(), "Netherlands");
         assertEquals(cities.get(0).getDistrict(), "Zuid-Holland");
 
+    }
+
+    //Capitals Class Test
+    @Test
+    void testCapitalsWorld()
+    {
+        ArrayList<Capital> capitals = Capital.capitalsWorld();
+        assertEquals(capitals.get(0).getName(), "Cairo");
+        assertEquals(capitals.get(0).getCountry(), "Egypt");
+        assertEquals(capitals.get(0).getPopulation(), "6789479");
+    }
+
+    @Test
+    void testCapitalsCont()
+    {
+        ArrayList<Capital> capitals =  Capital.capitalsCont("Europe");
+        assertEquals(capitals.get(0).getName(), "Berlin");
+        assertEquals(capitals.get(0).getCountry(), "Germany");
+        assertEquals(capitals.get(0).getPopulation(), "3386667");
+    }
+
+    @Test
+    void testCapitalsRegion()
+    {
+        ArrayList<Capital> capitals = Capital.capitalsRegion("Île-de-France'");
+        assertEquals(capitals.get(0).getName(), "Paris");
+        assertEquals(capitals.get(0).getCountry(), "France");
+        assertEquals(capitals.get(0).getPopulation(), "2125246");
+    }
+
+    //Population Class Test
+    @Test
+    void testPopulationContinent()
+    {
+        ArrayList<Population> populations = Population.popContinent();
+        assertEquals(populations.get(0).getName(), "Africa");
+        assertEquals(populations.get(0).getTotalPop(), "784475000");
+        assertEquals(populations.get(0).getCityPop(), "135838579");
+        assertEquals(populations.get(0).getRuralPop(), "648636421");
+    }
+
+    @Test
+    void testPopulationRegion()
+    {
+        ArrayList<Population> populations = Population.popRegion();
+        assertEquals(populations.get(0).getName(), "Western Europe");
+        assertEquals(populations.get(0).getTotalPop(), "183247600");
+        assertEquals(populations.get(0).getCityPop(), "45683298");
+        assertEquals(populations.get(0).getRuralPop(), "137564302");
+    }
+
+    @Test
+    void testPopulationCountry()
+    {
+        ArrayList<Population> populations = Population.popCountry();
+        assertEquals(populations.get(0).getName(), "Mexico");
+        assertEquals(populations.get(0).getTotalPop(), "98881000");
+        assertEquals(populations.get(0).getCityPop(), "59752521");
+        assertEquals(populations.get(0).getRuralPop(), "39128479");
     }
 }
