@@ -2,39 +2,46 @@ package com.napier.sem;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+/**
+ * The Country class creates objects containing information for a Country Report.
+ * This is done through a SQL query in the world database, using the Connection Class
+ *
+ * @author  Callum Grant
+ * @version 1.0
+ * @since   2021-03-19
+ */
 
 public class Country
 {
-    /**
-     * Country Code
-     */
-    public String code;
+   // Country Code
+    private String code;
+   // Country Name
+    private String name;
+    // Country Continent
+    private String continent;
+    // Country Region
+    private String region;
+    // Country Population
+    private long population;
+    // Country Capital
+    private String capital;
 
     /**
-     * Country name
+     *  Getters and Setters
      */
-    public String name;
+    public String getCode() {return code;}
+    public String setCode(String code){ this.code = code; return code;}
+    public String getName() {return name;}
+    public String setName(String name){ this.name = name; return name;}
+    public String getContinent() {return continent;}
+    public String setContinent(String continent){ this.continent = continent; return continent;}
+    public String getRegion() {return region;}
+    public String setRegion(String region){ this.region = region; return region;}
+    public long getPopulation() {return population;}
+    public long setPopulation(long population){ this.population = population; return population;}
+    public String getCapital() {return capital;}
+    public String setCapital(String capital){ this.capital = capital; return capital;}
 
-    /**
-     * Country Continent
-     */
-    public String continent;
-
-    /**
-     * Country Region
-     */
-    public String region;
-
-
-    /**
-     * Country Population
-     */
-    public long population;
-
-    /**
-     * Country Capital
-     */
-    public String capital;
 
 
     /**
@@ -162,11 +169,20 @@ public class Country
     // Display country to console
     public static void displayCountry(ArrayList<Country> countries)
     {
-        System.out.println(String.format("%-8s %-20s %-17s %-20s %-14s %-10s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        // Check employees is not null
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
+        System.out.println(String.format("%-8s %-14s %-17s %-16s %-14s %-10s", "Code", "Name", "Continent", "Region", "Population", "Capital"));
+        // Loop over all employees in the list
         for (Country country : countries)
         {
+            if (country == null)
+                continue;
             String country_str =
-                    String.format("%-8s %-20s %-17s %-20s %-14s %-10s",
+                    String.format("%-8s %-14s %-17s %-16s %-14s %-10s",
                             country.code, country.name, country.continent, country.region, country.population, country.capital);
             System.out.println(country_str);
 
