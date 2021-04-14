@@ -54,7 +54,7 @@ public class PopulationController
      */
     @RequestMapping("countryPop")
     public ArrayList<Population> countryPop(@RequestParam(value="country") String country) {
-        return Population.regionPop(country);
+        return Population.countryPop(country);
     }
 
     /**
@@ -64,7 +64,7 @@ public class PopulationController
      */
     @RequestMapping("districtPop")
     public ArrayList<Population> districtPop(@RequestParam(value="district") String district) {
-        return Population.regionPop(district);
+        return Population.districtPop(district);
     }
 
     /**
@@ -73,8 +73,8 @@ public class PopulationController
      * @return The record of the populations in city.
      */
     @RequestMapping("cityPop")
-    public ArrayList<Population> cityPop(@RequestParam(value="region") String city) {
-        return Population.regionPop(city);
+    public ArrayList<Population> cityPop(@RequestParam(value="city") String city) {
+        return Population.cityPop(city);
     }
 
 }

@@ -319,7 +319,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT city.District,SUM(DISTINCT city.Population)"
+                    "SELECT city.District,SUM(DISTINCT city.Population) "
                             + "FROM country JOIN city ON city.CountryCode=country.Code "
                             + "WHERE city.District = '" +district+ "' ";
             // Execute SQL statement
@@ -332,6 +332,7 @@ public class Population {
                 Population population = new Population();
                 population.name = rset.getString("city.District");
                 population.totalPop = rset.getLong("SUM(DISTINCT city.Population)");
+                population.cityPop = rset.getLong("SUM(DISTINCT city.Population)");
                 populations.add(population);
             }
             return populations;
@@ -352,7 +353,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT Name, Population"
+                    "SELECT Name, Population "
                             + "FROM city "
                             + "WHERE Name = '" +city+ "' ";
             // Execute SQL statement
@@ -365,6 +366,7 @@ public class Population {
                 Population population = new Population();
                 population.name = rset.getString("Name");
                 population.totalPop = rset.getLong("Population");
+                population.cityPop = rset.getLong("Population");
                 populations.add(population);
             }
             return populations;
