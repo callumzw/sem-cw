@@ -149,9 +149,9 @@ public class AppIntegrationTest
     {
         ArrayList<Population> populations = Population.popContinent();
         assertEquals(populations.get(0).getName(), "Asia");
-        assertEquals(populations.get(0).getTotalPop(), 3705025700L);
-        assertEquals(populations.get(0).getCityPop(), 697604103);
-        assertEquals(populations.get(0).getRuralPop(), 3007421597L);
+        assertEquals(populations.get(0).getTotalPop(), "3705025700");
+        assertEquals(populations.get(0).getCityPop(), "697604103(18%)");
+        assertEquals(populations.get(0).getRuralPop(), "3007421597(81%)");
     }
 
     @Test
@@ -159,9 +159,9 @@ public class AppIntegrationTest
     {
         ArrayList<Population> populations = Population.popRegion();
         assertEquals(populations.get(0).getName(), "Eastern Asia");
-        assertEquals(populations.get(0).getTotalPop(), 1507328000L);
-        assertEquals(populations.get(0).getCityPop(), 317476534);
-        assertEquals(populations.get(0).getRuralPop(), 1189851466);
+        assertEquals(populations.get(0).getTotalPop(), "1507328000");
+        assertEquals(populations.get(0).getCityPop(), "317476534(21%)");
+        assertEquals(populations.get(0).getRuralPop(), "1189851466(78%)");
     }
 
     @Test
@@ -169,9 +169,9 @@ public class AppIntegrationTest
     {
         ArrayList<Population> populations = Population.popCountry();
         assertEquals(populations.get(0).getName(), "China");
-        assertEquals(populations.get(0).getTotalPop(), 1277558000);
-        assertEquals(populations.get(0).getCityPop(), 175953614);
-        assertEquals(populations.get(0).getRuralPop(), 1101604386);
+        assertEquals(populations.get(0).getTotalPop(), "1277558000");
+        assertEquals(populations.get(0).getCityPop(), "175953614(13%)");
+        assertEquals(populations.get(0).getRuralPop(), "1101604386(86%)");
     }
 
 
