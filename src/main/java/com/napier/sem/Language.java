@@ -45,7 +45,7 @@ public class Language {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT Language, SUM(Percentage * (country.Population / 100)) AS worldPopulation "
+                    "SELECT Language, SUM((Percentage * (country.Population / 100)) / (SELECT SUM(DISTINCT country.Population)FROM country) * 100) AS worldPopulation "
                             + "FROM countrylanguage JOIN country ON countrylanguage.CountryCode=country.Code "
                             + "WHERE Language ='English' OR Language ='Chinese' OR Language ='Hindi' OR Language ='Spanish' OR Language ='Arabic' "
                             + " GROUP BY Language ORDER BY worldPopulation DESC ";
