@@ -45,9 +45,10 @@ public class Language {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT Language, SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
-                            + "FROM countryLanguage JOIN country ON countryLanguages.CountryCode=country.Code "
-                            + "GROUP BY Continent ORDER BY SUM(country.Population) DESC ";
+                    "SELECT Language, SUM(Percentage * (country.Population)) AS worldPopulation "
+                            + "FROM countrylanguage JOIN country ON countrylanguage.CountryCode=country.Code "
+                            + "WHERE Language ='English' OR Language ='Chinese' OR Language ='Hindi' OR Language ='Spanish' OR Language ='Arabic' "
+                            + " GROUP BY Language ORDER BY SUM(country.Population) DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(countrySelect);
             // Return new employee if valid.
@@ -56,8 +57,8 @@ public class Language {
             while (rset.next())
             {
                 Language language = new Language();
-                language.name = rset.getString("Continent");
-                language.population = rset.getLong("SUM(DISTINCT country.Population)");
+                language.name = rset.getString("Language");
+                language.population = rset.getLong("worldPopulation");
                 languages.add(language);
             }
             return languages;
