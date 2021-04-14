@@ -10,14 +10,13 @@ import java.util.ArrayList;
 public class CountryController
 {
     /**
-     * Get a single employee record.
-     * @param continent emp_no of the employee record to get.
-     * @return The record of the employee with emp_no or null if no employee exists.
+     * Get record of all countries by population in X Continent.
+     * @param continent of the Country record to get.
+     * @return The record of the Countries in continent.
      */
-    @RequestMapping("country")
+    @RequestMapping("CountryCont")
     public ArrayList<Country> countriesCont(@RequestParam(value="continent") String continent){
         return Country.countriesCont(continent);
     }
-
 
 }
