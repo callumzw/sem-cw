@@ -17,7 +17,7 @@ public class Language {
     private String name;
 
     // Total population
-    private long population;
+    private String population;
 
 
     // Getters and Setters
@@ -30,7 +30,7 @@ public class Language {
         return name;
     }
 
-    public long getPopulation() {
+    public String getPopulation() {
         return population;
     }
 
@@ -58,7 +58,7 @@ public class Language {
             {
                 Language language = new Language();
                 language.name = rset.getString("Language");
-                language.population = rset.getLong("worldPopulation");
+                language.population = rset.getLong("worldPopulation") + "%";
                 languages.add(language);
             }
             return languages;
