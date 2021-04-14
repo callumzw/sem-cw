@@ -45,10 +45,10 @@ public class Language {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT Language, SUM(Percentage * (country.Population)) AS worldPopulation "
+                    "SELECT Language, SUM(Percentage * (country.Population / 100)) AS worldPopulation "
                             + "FROM countrylanguage JOIN country ON countrylanguage.CountryCode=country.Code "
                             + "WHERE Language ='English' OR Language ='Chinese' OR Language ='Hindi' OR Language ='Spanish' OR Language ='Arabic' "
-                            + " GROUP BY Language ORDER BY SUM(country.Population) DESC ";
+                            + " GROUP BY Language ORDER BY worldPopulation DESC ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(countrySelect);
             // Return new employee if valid.
