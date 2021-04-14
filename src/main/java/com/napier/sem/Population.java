@@ -241,6 +241,142 @@ public class Population {
         }
     }
 
+    public static ArrayList<Population> regionPop(String region)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = Connection.getCon().createStatement();
+            // Create string for SQL statement
+            String countrySelect =
+                    "SELECT Region,SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                            + "FROM country JOIN city ON city.CountryCode=country.Code "
+                            + "WHERE Region = '" +region+ "' ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(countrySelect);
+            // Return new employee if valid.
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Check one is returned
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.name = rset.getString("Region");
+                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
+                population.cityPop = rset.getLong ("SUM(city.Population)");
+                population.ruralPop = rset.getLong ("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                populations.add(population);
+            }
+            return populations;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    public static ArrayList<Population> countryPop(String country)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = Connection.getCon().createStatement();
+            // Create string for SQL statement
+            String countrySelect =
+                    "SELECT country.Name,SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                            + "FROM country JOIN city ON city.CountryCode=country.Code "
+                            + "WHERE country.Name = '" +country+ "' ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(countrySelect);
+            // Return new employee if valid.
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Check one is returned
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.name = rset.getString("country.Name");
+                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
+                population.cityPop = rset.getLong ("SUM(city.Population)");
+                population.ruralPop = rset.getLong ("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                populations.add(population);
+            }
+            return populations;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    public static ArrayList<Population> districtPop(String district)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = Connection.getCon().createStatement();
+            // Create string for SQL statement
+            String countrySelect =
+                    "SELECT city.District,SUM(DISTINCT city.Population)"
+                            + "FROM country JOIN city ON city.CountryCode=country.Code "
+                            + "WHERE city.District = '" +district+ "' ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(countrySelect);
+            // Return new employee if valid.
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Check one is returned
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.name = rset.getString("city.District");
+                population.totalPop = rset.getLong("SUM(DISTINCT city.Population)");
+                populations.add(population);
+            }
+            return populations;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    public static ArrayList<Population> cityPop(String city)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = Connection.getCon().createStatement();
+            // Create string for SQL statement
+            String countrySelect =
+                    "SELECT Name, Population"
+                            + "FROM city "
+                            + "WHERE Name = '" +city+ "' ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(countrySelect);
+            // Return new employee if valid.
+            ArrayList<Population> populations = new ArrayList<Population>();
+            // Check one is returned
+            while (rset.next())
+            {
+                Population population = new Population();
+                population.name = rset.getString("Name");
+                population.totalPop = rset.getLong("Population");
+                populations.add(population);
+            }
+            return populations;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
     public static void displayPopulation(ArrayList<Population> populations)
     {
         // Check populations is not null
