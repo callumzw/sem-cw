@@ -18,4 +18,14 @@ public class PopulationController
         return Population.popContinent();
     }
 
+    @RequestMapping("worldPop")
+    public ArrayList<Population> worldPop(){
+        return Population.worldPop();
+    }
+
+    @RequestMapping("continentPop")
+    public ArrayList<Population> continentPop(@RequestParam(value="continent") String continent){
+        return Population.continentPop(continent);
+    }
+
 }
