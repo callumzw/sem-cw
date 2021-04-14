@@ -17,13 +17,13 @@ public class Population {
     private String name;
 
      // Total population
-    private long totalPop;
+    private String totalPop;
 
     // City Population
-    private long cityPop;
+    private String cityPop;
 
      //Rural Population
-    private long ruralPop;
+    private String ruralPop;
 
 
     // Getters and Setters
@@ -36,29 +36,29 @@ public class Population {
         this.name = name;
         return name;
     }
-    public long getTotalPop()
+    public String getTotalPop()
     {
         return totalPop;
     }
-    public long setTotalPop( long totalPop)
+    public String setTotalPop( String totalPop)
     {
         this.totalPop= totalPop;
         return totalPop;
     }
-    public long getCityPop()
+    public String getCityPop()
     {
         return cityPop;
     }
-    public long setCityPop( long cityPop)
+    public String setCityPop( String cityPop)
     {
         this.cityPop= cityPop;
         return cityPop;
     }
-    public long getRuralPop()
+    public String getRuralPop()
     {
         return ruralPop;
     }
-    public long setRuralPop( long ruralPop)
+    public String setRuralPop( String ruralPop)
     {
         this.ruralPop= ruralPop;
         return ruralPop;
@@ -75,7 +75,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT Continent, SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                    "SELECT Continent, SUM(DISTINCT country.Population) AS Total, SUM(city.Population) AS City, SUM(DISTINCT country.Population)-SUM(city.Population) AS Rural "
                             + "FROM country JOIN city ON city.CountryCode=country.Code "
                             + "GROUP BY Continent ORDER BY SUM(country.Population) DESC ";
             // Execute SQL statement
@@ -87,9 +87,11 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = rset.getString("Continent");
-                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
-                population.cityPop = rset.getLong ("SUM(city.Population)");
-                population.ruralPop = rset.getLong ("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                population.totalPop = rset.getString("Total");
+                population.cityPop = rset.getString ("City");
+                population.cityPop = population.cityPop + "(" + (long)(Double.parseDouble(population.cityPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
+                population.ruralPop = rset.getString ("Rural");
+                population.ruralPop = population.ruralPop + "(" + (long)(Double.parseDouble(population.ruralPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
                 populations.add(population);
             }
             return populations;
@@ -110,7 +112,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT Region, SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                    "SELECT Region, SUM(DISTINCT country.Population) AS Total, SUM(city.Population) AS City, SUM(DISTINCT country.Population)-SUM(city.Population) AS Rural "
                             + "FROM country JOIN city ON city.CountryCode=country.Code "
                             + "GROUP BY Region ORDER BY SUM(country.Population) DESC";
             // Execute SQL statement
@@ -122,9 +124,11 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = rset.getString("Region");
-                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
-                population.cityPop = rset.getLong("SUM(city.Population)");
-                population.ruralPop = rset.getLong("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                population.totalPop = rset.getString("Total");
+                population.cityPop = rset.getString ("City");
+                population.cityPop = population.cityPop + "(" + (long)(Double.parseDouble(population.cityPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
+                population.ruralPop = rset.getString ("Rural");
+                population.ruralPop = population.ruralPop + "(" + (long)(Double.parseDouble(population.ruralPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
                 populations.add(population);
             }
             return populations;
@@ -145,7 +149,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT country.Name, SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                    "SELECT country.Name, SUM(DISTINCT country.Population) AS Total, SUM(city.Population) AS City, SUM(DISTINCT country.Population)-SUM(city.Population) AS Rural  "
                             + "FROM country JOIN city ON city.CountryCode=country.Code "
                             + "GROUP BY country.Name ORDER BY SUM(country.Population) DESC ";
             // Execute SQL statement
@@ -157,9 +161,11 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = rset.getString("country.Name");
-                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
-                population.cityPop = rset.getLong("SUM(city.Population)");
-                population.ruralPop = rset.getLong("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                population.totalPop = rset.getString("Total");
+                population.cityPop = rset.getString ("City");
+                population.cityPop = population.cityPop + "(" + (long)(Double.parseDouble(population.cityPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
+                population.ruralPop = rset.getString ("Rural");
+                population.ruralPop = population.ruralPop + "(" + (long)(Double.parseDouble(population.ruralPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
                 populations.add(population);
             }
             return populations;
@@ -180,7 +186,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                    "SELECT SUM(DISTINCT country.Population) AS Total, SUM(city.Population) AS City, SUM(DISTINCT country.Population)-SUM(city.Population) AS Rural "
                             + "FROM country JOIN city ON city.CountryCode=country.Code ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(countrySelect);
@@ -191,9 +197,11 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = "World";
-                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
-                population.cityPop = rset.getLong ("SUM(city.Population)");
-                population.ruralPop = rset.getLong ("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                population.totalPop = rset.getString("Total");
+                population.cityPop = rset.getString ("City");
+                population.cityPop = population.cityPop + "(" + (long)(Double.parseDouble(population.cityPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
+                population.ruralPop = rset.getString ("Rural");
+                population.ruralPop = population.ruralPop + "(" + (long)(Double.parseDouble(population.ruralPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
                 populations.add(population);
             }
             return populations;
@@ -214,7 +222,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT Continent,SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                    "SELECT Continent, SUM(DISTINCT country.Population) AS Total, SUM(city.Population) AS City, SUM(DISTINCT country.Population)-SUM(city.Population) AS Rural "
                             + "FROM country JOIN city ON city.CountryCode=country.Code "
                             + "WHERE Continent = '" +continent+ "' ";
             // Execute SQL statement
@@ -226,9 +234,11 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = rset.getString("Continent");
-                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
-                population.cityPop = rset.getLong ("SUM(city.Population)");
-                population.ruralPop = rset.getLong ("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                population.totalPop = rset.getString("Total");
+                population.cityPop = rset.getString ("City");
+                population.cityPop = population.cityPop + "(" + (long)(Double.parseDouble(population.cityPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
+                population.ruralPop = rset.getString ("Rural");
+                population.ruralPop = population.ruralPop + "(" + (long)(Double.parseDouble(population.ruralPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
                 populations.add(population);
             }
             return populations;
@@ -249,7 +259,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT Region,SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                    "SELECT Region,SUM(DISTINCT country.Population) AS Total, SUM(city.Population) AS City, SUM(DISTINCT country.Population)-SUM(city.Population) AS Rural "
                             + "FROM country JOIN city ON city.CountryCode=country.Code "
                             + "WHERE Region = '" +region+ "' ";
             // Execute SQL statement
@@ -261,9 +271,11 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = rset.getString("Region");
-                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
-                population.cityPop = rset.getLong ("SUM(city.Population)");
-                population.ruralPop = rset.getLong ("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                population.totalPop = rset.getString("Total");
+                population.cityPop = rset.getString ("City");
+                population.cityPop = population.cityPop + "(" + (long)(Double.parseDouble(population.cityPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
+                population.ruralPop = rset.getString ("Rural");
+                population.ruralPop = population.ruralPop + "(" + (long)(Double.parseDouble(population.ruralPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
                 populations.add(population);
             }
             return populations;
@@ -284,7 +296,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT country.Name,SUM(DISTINCT country.Population), SUM(city.Population), SUM(DISTINCT country.Population)-SUM(city.Population) "
+                    "SELECT country.Name,SUM(DISTINCT country.Population) AS Total, SUM(city.Population) AS City, SUM(DISTINCT country.Population)-SUM(city.Population) AS Rural "
                             + "FROM country JOIN city ON city.CountryCode=country.Code "
                             + "WHERE country.Name = '" +country+ "' ";
             // Execute SQL statement
@@ -296,9 +308,11 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = rset.getString("country.Name");
-                population.totalPop = rset.getLong("SUM(DISTINCT country.Population)");
-                population.cityPop = rset.getLong ("SUM(city.Population)");
-                population.ruralPop = rset.getLong ("SUM(DISTINCT country.Population)-SUM(city.Population)");
+                population.totalPop = rset.getString("Total");
+                population.cityPop = rset.getString ("City");
+                population.cityPop = population.cityPop + "(" + (long)(Double.parseDouble(population.cityPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
+                population.ruralPop = rset.getString ("Rural");
+                population.ruralPop = population.ruralPop + "(" + (long)(Double.parseDouble(population.ruralPop) / Double.parseDouble(population.totalPop) * 100) + "%)";
                 populations.add(population);
             }
             return populations;
@@ -319,7 +333,7 @@ public class Population {
             Statement stmt = Connection.getCon().createStatement();
             // Create string for SQL statement
             String countrySelect =
-                    "SELECT city.District,SUM(DISTINCT city.Population) "
+                    "SELECT city.District,SUM(DISTINCT city.Population) AS Total "
                             + "FROM country JOIN city ON city.CountryCode=country.Code "
                             + "WHERE city.District = '" +district+ "' ";
             // Execute SQL statement
@@ -331,8 +345,9 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = rset.getString("city.District");
-                population.totalPop = rset.getLong("SUM(DISTINCT city.Population)");
-                population.cityPop = rset.getLong("SUM(DISTINCT city.Population)");
+                population.totalPop = rset.getString("Total");
+                population.cityPop = rset.getString ("Total") + "(100%)";
+                population.ruralPop = "0 (0%)";
                 populations.add(population);
             }
             return populations;
@@ -365,8 +380,9 @@ public class Population {
             {
                 Population population = new Population();
                 population.name = rset.getString("Name");
-                population.totalPop = rset.getLong("Population");
-                population.cityPop = rset.getLong("Population");
+                population.totalPop = rset.getString("Population");
+                population.cityPop = rset.getString("Population") + "(100%)";
+                population.ruralPop = "0 (0%)";
                 populations.add(population);
             }
             return populations;
