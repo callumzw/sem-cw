@@ -26,7 +26,7 @@ public class CountryController
      * @return The record of the Countries in continent.
      */
     @RequestMapping("TopCountryCont")
-    public ArrayList<Country> topCountryCont(@RequestParam(value = "num") int num, @RequestParam(value="num continent")  String continent){
+    public ArrayList<Country> topCountryCont(@RequestParam(value = "num") int num, @RequestParam(value="continent")  String continent){
         return Country.topCountryCont(num,continent);
     }
 
