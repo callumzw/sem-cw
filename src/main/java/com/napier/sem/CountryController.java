@@ -19,4 +19,15 @@ public class CountryController
         return Country.countriesCont(continent);
     }
 
+
+    /**
+     * Get record of all countries by population in X Continent.
+     * @param continent of the Country record to get.
+     * @return The record of the Countries in continent.
+     */
+    @RequestMapping("TopCountryCont")
+    public ArrayList<Country> topCountryCont(@RequestParam(value = "num") int num, @RequestParam(value="num continent")  String continent){
+        return Country.topCountryCont(num,continent);
+    }
+
 }
