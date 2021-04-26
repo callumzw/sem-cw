@@ -9,6 +9,11 @@ import java.util.ArrayList;
 @RestController
 public class CapitalController
 {
+    @RequestMapping("capitalsWorld")
+    public ArrayList<Capital> capitalsWorld(){
+        return Capital.capitalsWorld();
+    }
+
     /**
      * Get record of all Capitals in X Continent.
      * @param continent of the Capital record to get.
@@ -19,4 +24,8 @@ public class CapitalController
         return Capital.capitalsCont(continent);
     }
 
+    @RequestMapping("capitalsRegion")
+    public ArrayList<Capital> capitalsRegion(@RequestParam(value="Region") String Region){
+        return Capital.capitalsRegion(Region);
+    }
 }

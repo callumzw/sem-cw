@@ -43,7 +43,6 @@ public class Country
     public String setCapital(String capital){ this.capital = capital; return capital;}
 
 
-
     /**
      *  Methods
      */
