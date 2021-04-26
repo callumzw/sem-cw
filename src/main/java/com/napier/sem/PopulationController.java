@@ -17,6 +17,23 @@ public class PopulationController
     public ArrayList<Population> popContinent(){
         return Population.popContinent();
     }
+    /**
+     * Get record of the total,urban and rural populations of every Region.
+     * @return The record of Region populations.
+     */
+    @RequestMapping("popRegion")
+    public ArrayList<Population> popRegion(){
+        return Population.popRegion();
+    }
+
+    /**
+     * Get record of the total,urban and rural populations of every Country.
+     * @return The record of Country populations.
+     */
+    @RequestMapping("popCountry")
+    public ArrayList<Population> popCountry(){
+        return Population.popCountry();
+    }
 
     /**
      * Get record of the Worlds total,urban and rural populations.
