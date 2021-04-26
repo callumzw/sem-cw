@@ -10,7 +10,7 @@
 | ID          | Name        | Met         |  Screenshot |
 | ----------- | ----------- | ----------- | ----------- |
 | 1           | All the countries in the world organised by largest population to smallest.| Yes |
-| 2           | All the countries in a continent organised by largest population to smallest.| Yes | (https://github.com/callumzw/sem-cw/tree/Requirement-Table/Screenshots/CountryCont.png)
+| 2           | All the countries in a continent organised by largest population to smallest.| Yes | ![alt text](Screenshots/CountryCont.png "CountryCont")
 | 3           | All the countries in a region organised by largest population to smallest.| Yes |
 | 4           | The top N populated countries in the world where N is provided by the user.| No |
 | 5           | The top N populated countries in a continent where N is provided by the user.| Yes |
