@@ -199,8 +199,8 @@ public class AppIntegrationTest
     @Test
     void testWorldLanguage() {
         ArrayList<Language> languages = Language.worldLanguage();
-        assertEquals(languages.get(0).getName(), "English");
-        assertEquals(languages.get(0).getPopulation(), "5%");
+        assertEquals(languages.get(3).getName(), "English");
+        assertEquals(languages.get(3).getPopulation(), "5%");
 
     }
 
