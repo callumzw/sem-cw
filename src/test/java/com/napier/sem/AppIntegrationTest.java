@@ -174,6 +174,36 @@ public class AppIntegrationTest
         assertEquals(populations.get(0).getRuralPop(), "1101604386(86%)");
     }
 
+    @Test
+    void testWorldPop()
+    {
+        ArrayList<Population> populations = Population.worldPop();
+        assertEquals(populations.get(0).getName(), "World");
+        assertEquals(populations.get(0).getTotalPop(), "6078547450");
+        assertEquals(populations.get(0).getCityPop(), "1429559884(23%)");
+        assertEquals(populations.get(0).getRuralPop(), "4648987566(76%)");
+
+    }
+
+    @Test
+    void testContinentPopulation()
+    {
+        ArrayList<Population> populations = Population.continentPop("Africa");
+        assertEquals(populations.get(0).getName(), "Africa");
+        assertEquals(populations.get(0).getTotalPop(), "784475000");
+        assertEquals(populations.get(0).getCityPop(), "135838579(17%)");
+        assertEquals(populations.get(0).getRuralPop(), "648636421(82%)");
+    }
+
+
+    @Test
+    void testWorldLanguage() {
+        ArrayList<Language> languages = Language.worldLanguage();
+        assertEquals(languages.get(0).getName(), "English");
+        assertEquals(languages.get(0).getPopulation(), "5%");
+
+    }
+
 
     @AfterAll
     static void Disconnect ()
