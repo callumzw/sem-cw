@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -199,7 +199,7 @@ public class AppIntegrationTest
         ArrayList<Population> populations = Population.regionPop("Western Europe");
         assertEquals(populations.get(0).getName(), "Western Europe");
         assertEquals(populations.get(0).getTotalPop(), "183247600");
-        assertEquals(populations.get(0).getCityPop(), "45683298(25%)");
+        assertEquals(populations.get(0).getCityPop(), "45683298(24%)");
         assertEquals(populations.get(0).getRuralPop(), "137564302(75%)");
     }
 
@@ -210,7 +210,7 @@ public class AppIntegrationTest
         assertEquals(populations.get(0).getName(), "Mexico");
         assertEquals(populations.get(0).getTotalPop(), "98881000");
         assertEquals(populations.get(0).getCityPop(), "59752521(60%)");
-        assertEquals(populations.get(0).getRuralPop(), "39128479(40%)");
+        assertEquals(populations.get(0).getRuralPop(), "39128479(39%)");
     }
 
     @Test
@@ -220,7 +220,7 @@ public class AppIntegrationTest
         assertEquals(populations.get(0).getName(), "Zuid-Holland");
         assertEquals(populations.get(0).getTotalPop(), "1476710");
         assertEquals(populations.get(0).getCityPop(), "1476710(100%)");
-        assertEquals(populations.get(0).getRuralPop(), "0(0%)");
+        assertEquals(populations.get(0).getRuralPop(), "0 (0%)");
     }
 
     @Test
@@ -230,7 +230,7 @@ public class AppIntegrationTest
         assertEquals(populations.get(0).getName(), "Stockholm");
         assertEquals(populations.get(0).getTotalPop(), "750348");
         assertEquals(populations.get(0).getCityPop(), "750348(100%)");
-        assertEquals(populations.get(0).getRuralPop(), "0(0%)");
+        assertEquals(populations.get(0).getRuralPop(), "0 (0%)");
     }
 
     @AfterAll
