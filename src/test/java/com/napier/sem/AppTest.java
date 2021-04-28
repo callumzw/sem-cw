@@ -122,9 +122,9 @@ public class AppTest
         ArrayList<Population> populations = new ArrayList<Population>();
         Population population = new Population();
         population.setName("Greenland");
-        population.setTotalPop(69420);
-        population.setCityPop(69000);
-        population.setRuralPop(420);
+        population.setTotalPop("69420");
+        population.setCityPop("69000");
+        population.setRuralPop("420");
         Population.displayPopulation(populations);
     }
 }
