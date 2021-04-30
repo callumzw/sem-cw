@@ -38,5 +38,21 @@ public class CityController
     public ArrayList<City> citiesDistrict(@RequestParam(value="District") String District){
         return City.citiesDistrict(District);
     }
+
+    @RequestMapping("TopCityDistrict")
+    public ArrayList<City> TopcitiesDistrict(@RequestParam(value="District") String District, @RequestParam(value="limit") int limit){
+        return City.TopcitiesDistrict(District, limit);
+    }
+
+    @RequestMapping("TopcitiesCont")
+    public ArrayList<City> TopcitiesCont(@RequestParam(value="continent") String continent, @RequestParam(value="limit") int limit){
+        return City.TopcitiesCont(continent, limit);
+    }
+
+    @RequestMapping("TopcitiesCountry")
+    public ArrayList<City> TopcitiesCountry(@RequestParam(value="country") String country, @RequestParam(value="limit") int limit){
+        return City.TopcitiesCountry(country, limit);
+    }
 }
+
 
