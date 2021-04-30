@@ -44,6 +44,11 @@ public class CityController
         return City.TopcitiesDistrict(District, limit);
     }
 
+    @RequestMapping("TopCityWorld")
+    public ArrayList<City> TopcitiesWorld( @RequestParam(value="limit") int limit){
+        return City.TopcitiesWorld(limit);
+    }
+
     @RequestMapping("TopcitiesCont")
     public ArrayList<City> TopcitiesCont(@RequestParam(value="continent") String continent, @RequestParam(value="limit") int limit){
         return City.TopcitiesCont(continent, limit);
@@ -52,6 +57,11 @@ public class CityController
     @RequestMapping("TopcitiesCountry")
     public ArrayList<City> TopcitiesCountry(@RequestParam(value="country") String country, @RequestParam(value="limit") int limit){
         return City.TopcitiesCountry(country, limit);
+    }
+
+    @RequestMapping("TopCityRegion")
+    public ArrayList<City> TopcitiesRegion(@RequestParam(value="region") String region, @RequestParam(value="limit") int limit){
+        return City.TopcitiesRegion(region, limit);
     }
 }
 

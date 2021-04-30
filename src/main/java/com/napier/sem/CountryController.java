@@ -48,6 +48,15 @@ public class CountryController
     public ArrayList<Country> topCountryRegion(@RequestParam(value = "Limit") int limit, @RequestParam(value="Region")  String region){
         return Country.topCountryRegion(limit,region);
     }
+    /**
+     * Get record of X countries by population.
+     * @param num of the Country record to get.
+     * @return The record of the Countries.
+     */
+    @RequestMapping("TopCountriesWorld")
+    public ArrayList<Country> topCountryCont(@RequestParam(value = "num") int num){
+        return Country.topCountriesWorld(num);
+    }
 
 
 
