@@ -266,4 +266,40 @@ public class Country
         }
         System.out.println("\n");
     }
+
+
+    public static ArrayList<Country> TopCountriesWorld(Integer limit)
+    {
+        try {
+            Statement stmt = Connection.getCon().createStatement();
+
+            String countrySelect =
+                    "SELECT Code, country.Name, Continent, Region, country.Population, city.Name "
+                            + "FROM country"
+                            + "ORDER BY country.Population DESC "
+                            + "LIMIT '" +limit+ "'";
+            ResultSet rset = stmt.executeQuery(countrySelect);
+            // Return new employee if valid.
+            ArrayList<Country> countries = new ArrayList<Country>();
+            // Check one is returned
+            while (rset.next())
+            {
+                Country country = new Country();
+                country.code = rset.getString("Code");
+                country.name = rset.getString("country.Name");
+                country.continent = rset.getString("Continent");
+                country.region = rset.getString("Region");
+                country.population = rset.getLong("country.Population");
+                country.capital = rset.getString("city.Name");
+                countries.add(country);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
 }
