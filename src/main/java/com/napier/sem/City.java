@@ -240,7 +240,7 @@ public class City
         System.out.println("\n");
     }
 
-    public static ArrayList<City> NcitiesDistrict(String district, Integer limit)
+    public static ArrayList<City> TopcitiesDistrict(String district, Integer limit)
     {
         try
         {
@@ -276,7 +276,7 @@ public class City
         }
     }
 
-    public static ArrayList<City> NcitiesCont(String continent, Integer limit)
+    public static ArrayList<City> TopcitiesCont(String continent, Integer limit)
     {
         try
         {
@@ -312,7 +312,7 @@ public class City
         }
     }
 
-    public static ArrayList<City> NcitiesCountry(String country, Integer limit)
+    public static ArrayList<City> TopcitiesCountry(String country, Integer limit)
     {
         try
         {
