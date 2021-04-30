@@ -28,4 +28,19 @@ public class CapitalController
     public ArrayList<Capital> capitalsRegion(@RequestParam(value="Region") String Region){
         return Capital.capitalsRegion(Region);
     }
+
+    @RequestMapping("TopCapitalsRegion")
+    public ArrayList<Capital> TopCapitalsRegion(@RequestParam(value="region") String region, @RequestParam(value="limit") int limit){
+        return Capital.TopCapitalsRegion(region, limit);
+    }
+
+    @RequestMapping("TopCapitalsCont")
+    public ArrayList<Capital> TopCapitalsCont(@RequestParam(value="continent") String continent, @RequestParam(value="limit") int limit){
+        return Capital.TopCapitalsContinent(continent, limit);
+    }
+
+    @RequestMapping("TopCapitalsWorld")
+    public ArrayList<Capital> TopCapitals(@RequestParam(value="limit") int limit){
+        return Capital.TopCapitalsWorld(limit);
+    }
 }
