@@ -9,25 +9,25 @@
 
 | ID          | Name        | Met         |  Screenshot |
 | ----------- | ----------- | ----------- | ----------- |
-| 1           | All the countries in the world organised by largest population to smallest.| Yes |
+| 1           | All the countries in the world organised by largest population to smallest.| Yes | ![alt text](Screenshots/countriesWorld.png "countriesWorld") </br>  ![alt text](Screenshots/countriesWorld2.png "countriesWorld2")
 | 2           | All the countries in a continent organised by largest population to smallest.| Yes | ![alt text](Screenshots/CountryCont.png "CountryCont(Europe)")
-| 3           | All the countries in a region organised by largest population to smallest.| Yes |
+| 3           | All the countries in a region organised by largest population to smallest.| Yes | ![alt text](Screenshots/countriesRegion.png "countriesRegion(Southern Africa)")
 | 4           | The top N populated countries in the world where N is provided by the user.| No |
 | 5           | The top N populated countries in a continent where N is provided by the user.| Yes | ![alt text](Screenshots/TopCountryCont.png "TopCountryCont(5,Europe)")
 | 6           | The top N populated countries in a region where N is provided by the user.| No |
-| 7           | All the cities in the world organised by largest population to smallest.| Yes |
+| 7           | All the cities in the world organised by largest population to smallest.| Yes | ![alt text](Screenshots/CityWorld.png "CityWorld")
 | 8           | All the cities in a continent organised by largest population to smallest.| Yes| ![alt text](Screenshots/CityCont.png "CityCont(Oceania)")
-| 9           | All the cities in a region organised by largest population to smallest.| Yes |
-| 10          | All the cities in a country organised by largest population to smallest.| Yes |
-| 11          | All the cities in a district organised by largest population to smallest.| Yes |
+| 9           | All the cities in a region organised by largest population to smallest.| Yes | ![alt text](Screenshots/CityRegion.png "CityRegion(Southern Africa)")
+| 10          | All the cities in a country organised by largest population to smallest.| Yes | ![alt text](Screenshots/CityCountry.png "CityCountry(Zimbabwe)")
+| 11          | All the cities in a district organised by largest population to smallest.| Yes | ![alt text](Screenshots/CityDistrict.png "CityDistrict(Scotland)")
 | 12          | The top N populated cities in the world where N is provided by the user.| No |
-| 13          | The top N populated cities in a continent where N is provided by the user.| No | 
+| 13          | The top N populated cities in a continent where N is provided by the user.| Yes |  ![alt text](Screenshots/TopCityCont.png "TopCityCont(Europe)")
 | 14          | The top N populated cities in a region where N is provided by the user.| No |
-| 15          | The top N populated cities in a country where N is provided by the user.| No |
-| 16          | The top N populated cities in a district where N is provided by the user.| No |
-| 17          | All the capital cities in the world organised by largest population to smallest.| Yes |
+| 15          | The top N populated cities in a country where N is provided by the user.| Yes | ![alt text](Screenshots/TopCityCountry.png "TopCityCountry(Japan)")
+| 16          | The top N populated cities in a district where N is provided by the user.| Yes | ![alt text](Screenshots/TopCityDistrict.png "TopCityDistrict(Scotland)")
+| 17          | All the capital cities in the world organised by largest population to smallest.| Yes | ![alt text](Screenshots/CapitalsWorld.png "CapitalsWorld")
 | 18          | All the capital cities in a continent organised by largest population to smallest.| Yes | ![alt text](Screenshots/CapitalCont.png "CapitalCont(Europe)")
-| 19          | All the capital cities in a region organised by largest to smallest.| Yes |
+| 19          | All the capital cities in a region organised by largest to smallest.| Yes | ![alt text](Screenshots/CapitalsRegion.png "CapitalRegion(Southern Africa)")
 | 20          | The top N populated capital cities in the world where N is provided by the user.| No |
 | 21          | The top N populated capital cities in a continent where N is provided by the user.| No |
 | 22          | The top N populated capital cities in a region where N is provided by the user.| No |

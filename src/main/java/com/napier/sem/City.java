@@ -254,7 +254,8 @@ public class City {
                             + "FROM city JOIN country ON city.CountryCode=country.Code "
                             + "WHERE District = '" + district + "' "
                             + "ORDER BY city.Population DESC "
-                            + "LIMIT '" + limit + "'";
+                            + "LIMIT " +limit;
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(citySelect);
             // Return new employee if valid.
@@ -286,7 +287,7 @@ public class City {
                             + "FROM city JOIN country ON city.CountryCode=country.Code "
                             + "WHERE Continent = '" + continent + "' "
                             + "ORDER BY city.Population DESC "
-                            + "LIMIT '" + limit + "'";
+                            + "LIMIT " +limit ;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(citySelect);
             // Return new employee if valid.
@@ -318,6 +319,8 @@ public class City {
                             + "FROM city JOIN country ON city.CountryCode=country.Code "
                             + "WHERE country.Name = '" + country + "' "
                             + "ORDER BY city.Population DESC "
+
+                            + "LIMIT " +limit;
                             + "LIMIT '" + limit + "'";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(citySelect);
