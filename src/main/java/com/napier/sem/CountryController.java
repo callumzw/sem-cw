@@ -55,7 +55,7 @@ public class CountryController
      */
     @RequestMapping("TopCountriesWorld")
     public ArrayList<Country> topCountryCont(@RequestParam(value = "num") int num){
-        return Country.topCountriesWorld(num);
+        return Country.TopCountriesWorld(num);
     }
 
 

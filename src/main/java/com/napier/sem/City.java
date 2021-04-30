@@ -341,7 +341,7 @@ public class City {
     }
 
     //Sort Cities "N" via regions in descending order
-    public static ArrayList<City> DescendingCitiesRegion(String region, Integer limit) {
+    public static ArrayList<City> TopCityRegion(String region, Integer limit) {
         try {
             //Create an SQL statement
             Statement stmt = Connection.getCon().createStatement();
@@ -374,7 +374,7 @@ public class City {
     }
 
     //sort **N** amount of cities in the world in descending order
-    public static ArrayList<City> DescendingCitiesWorld(String country, Integer limit) {
+    public static ArrayList<City> TopCityWorld(Integer limit) {
         try {
             //Create an SQL statement
             Statement stmt = Connection.getCon().createStatement();

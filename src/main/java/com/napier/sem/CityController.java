@@ -46,7 +46,7 @@ public class CityController
 
     @RequestMapping("TopCityWorld")
     public ArrayList<City> TopcitiesWorld( @RequestParam(value="limit") int limit){
-        return City.TopcitiesWorld(limit);
+        return City.TopCityWorld(limit);
     }
 
     @RequestMapping("TopcitiesCont")
@@ -61,7 +61,7 @@ public class CityController
 
     @RequestMapping("TopCityRegion")
     public ArrayList<City> TopcitiesRegion(@RequestParam(value="region") String region, @RequestParam(value="limit") int limit){
-        return City.TopcitiesRegion(region, limit);
+        return City.TopCityRegion(region, limit);
     }
 }
 

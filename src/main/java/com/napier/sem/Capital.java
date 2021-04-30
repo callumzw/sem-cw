@@ -145,7 +145,7 @@ public class Capital {
     }
 
     //sort **N** amount of capital cities in a region in descending order
-    public static ArrayList<Capital> capitalsRegionWorld(String region, Integer limit)
+    public static ArrayList<Capital> TopCapitalsRegion(String region, Integer limit)
     {
         try
         {
