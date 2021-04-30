@@ -30,8 +30,8 @@ public class CapitalController
     }
 
     @RequestMapping("TopCapitalsRegion")
-    public ArrayList<Capital> TopCapitalsRegion(@RequestParam(value="region") String continent, @RequestParam(value="limit") int limit){
-        return Capital.TopCapitalsRegion(continent, limit);
+    public ArrayList<Capital> TopCapitalsRegion(@RequestParam(value="region") String region, @RequestParam(value="limit") int limit){
+        return Capital.TopCapitalsRegion(region, limit);
     }
 
     @RequestMapping("TopCapitalsCont")
